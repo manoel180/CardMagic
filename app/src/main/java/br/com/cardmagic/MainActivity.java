@@ -7,7 +7,8 @@ import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.TextView;
+
+import static br.com.cardmagic.R.layout.activity_main;
 
 public class MainActivity extends Activity {
 
@@ -19,7 +20,7 @@ public class MainActivity extends Activity {
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
         executeDelayed();
-        setContentView(R.layout.activity_main);
+        setContentView(activity_main);
         initView();
 
     }
@@ -28,19 +29,21 @@ public class MainActivity extends Activity {
         ViewGroup gridLayout = (ViewGroup) findViewById(R.id.cards);
         initCards(gridLayout);
     }
-    private void initCards(ViewGroup gridLayout) {
-        for (Integer value : getResources().getIntArray(R.array.card2)){
-            TextView txt = new TextView(this);
+    private void initCards(ViewGroup layout) {
+//        for (Integer value : getResources().getIntArray(R.array.card2)){
+//            TextView txt = new TextView(this);
+//
+//            txt.setText(value.toString());
+//            gridLayout.addView(txt);
+//
+//        }
 
-            txt.setText(value.toString());
-            gridLayout.addView(txt);
-
-        }
+        //layout.addView((ViewGroup)(R.layout.card1));
+        this.setContentView(R.layout.card1);
     }
 
 
-    private
-    void executeDelayed() {
+    private void executeDelayed() {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
