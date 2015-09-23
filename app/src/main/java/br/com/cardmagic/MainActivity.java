@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
-import static br.com.cardmagic.R.layout.activity_main;
-
 public class MainActivity extends Activity {
 
     @Override
@@ -20,7 +18,7 @@ public class MainActivity extends Activity {
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
         executeDelayed();
-        setContentView(activity_main);
+        setContentView(R.layout.activity_main);
         initView();
 
     }
@@ -62,8 +60,8 @@ public class MainActivity extends Activity {
                     | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                     | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                     | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+                    | View.SYSTEM_UI_FLAG_FULLSCREEN);
+                //    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         }
     }
 

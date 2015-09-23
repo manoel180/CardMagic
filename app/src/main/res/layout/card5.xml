@@ -10,19 +10,19 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_1" />
+            android:text="@integer/_8" />
 
         <TextView
             style="@style/item"
-            android:text="@integer/_3" />
+            android:text="@integer/_9" />
 
         <TextView
             style="@style/item"
-            android:text="@integer/_5" />
+            android:text="@integer/_10" />
 
         <TextView
             style="@style/item"
-            android:text="@integer/_7" />
+            android:text= "@integer/_11" />
 
     </TableRow>
 
@@ -32,15 +32,15 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_9" />
-
-        <TextView
-            style="@style/item"
-            android:text="@integer/_11" />
+            android:text="@integer/_12" />
 
         <TextView
             style="@style/item"
             android:text="@integer/_13" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_14" />
 
         <TextView
             style="@style/item"
@@ -52,23 +52,7 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_17" />
-
-        <TextView
-            style="@style/item"
-            android:text="@integer/_19" />
-
-        <TextView
-            style="@style/item"
-            android:text="@integer/_21" />
-
-        <TextView
-            style="@style/item"
-            android:text="@integer/_23" />
-    </TableRow>
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            android:text="@integer/_24" />
 
         <TextView
             style="@style/item"
@@ -76,11 +60,27 @@
 
         <TextView
             style="@style/item"
+            android:text="@integer/_26" />
+
+        <TextView
+            style="@style/item"
             android:text="@integer/_27" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_28" />
 
         <TextView
             style="@style/item"
             android:text="@integer/_29" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_30" />
 
         <TextView
             style="@style/item"

@@ -10,11 +10,7 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_1" />
-
-        <TextView
-            style="@style/item"
-            android:text="@integer/_3" />
+            android:text="@integer/_4" />
 
         <TextView
             style="@style/item"
@@ -22,7 +18,11 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_7" />
+            android:text="@integer/_6" />
+
+        <TextView
+            style="@style/item"
+            android:text= "@integer/_7" />
 
     </TableRow>
 
@@ -32,15 +32,15 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_9" />
-
-        <TextView
-            style="@style/item"
-            android:text="@integer/_11" />
+            android:text="@integer/_12" />
 
         <TextView
             style="@style/item"
             android:text="@integer/_13" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_14" />
 
         <TextView
             style="@style/item"
@@ -52,15 +52,15 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_17" />
-
-        <TextView
-            style="@style/item"
-            android:text="@integer/_19" />
+            android:text="@integer/_20" />
 
         <TextView
             style="@style/item"
             android:text="@integer/_21" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_22" />
 
         <TextView
             style="@style/item"
@@ -72,15 +72,15 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_25" />
-
-        <TextView
-            style="@style/item"
-            android:text="@integer/_27" />
+            android:text="@integer/_28" />
 
         <TextView
             style="@style/item"
             android:text="@integer/_29" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_30" />
 
         <TextView
             style="@style/item"

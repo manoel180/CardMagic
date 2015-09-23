@@ -10,7 +10,7 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_1" />
+            android:text="@integer/_2" />
 
         <TextView
             style="@style/item"
@@ -18,11 +18,11 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_5" />
+            android:text="@integer/_6" />
 
         <TextView
             style="@style/item"
-            android:text="@integer/_7" />
+            android:text= "@integer/_7" />
 
     </TableRow>
 
@@ -32,7 +32,7 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_9" />
+            android:text="@integer/_10" />
 
         <TextView
             style="@style/item"
@@ -40,7 +40,7 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_13" />
+            android:text="@integer/_14" />
 
         <TextView
             style="@style/item"
@@ -52,7 +52,7 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_17" />
+            android:text="@integer/_18" />
 
         <TextView
             style="@style/item"
@@ -60,7 +60,7 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_21" />
+            android:text="@integer/_22" />
 
         <TextView
             style="@style/item"
@@ -72,7 +72,7 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_25" />
+            android:text="@integer/_26" />
 
         <TextView
             style="@style/item"
@@ -80,7 +80,7 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_29" />
+            android:text="@integer/_30" />
 
         <TextView
             style="@style/item"
