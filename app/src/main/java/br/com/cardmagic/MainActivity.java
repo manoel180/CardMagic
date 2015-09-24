@@ -30,16 +30,7 @@ public class MainActivity extends Activity {
         initCards(gridLayout);
     }
     private void initCards(ViewGroup layout) {
-//        for (Integer value : getResources().getIntArray(R.array.card2)){
-//            TextView txt = new TextView(this);
-//
-//            txt.setText(value.toString());
-//            gridLayout.addView(txt);
-//
-//        }
-
-        //layout.addView((ViewGroup)(R.layout.card1));
-        this.setContentView(R.layout.card1);
+        this.setContentView(layout);
     }
 
 
