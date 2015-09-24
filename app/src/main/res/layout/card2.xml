@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_2" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_3" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_6" />
+
+        <TextView
+            style="@style/item"
+            android:text= "@integer/_7" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_10" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_11" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_14" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_15" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_18" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_19" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_22" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_23" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_26" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_27" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_30" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_31" />
+    </TableRow>
+</TableLayout>
