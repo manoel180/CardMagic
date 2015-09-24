@@ -1,2 +1,1 @@
 # CardMagic
-App android
