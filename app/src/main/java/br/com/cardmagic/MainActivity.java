@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.TableLayout;
 
 import static br.com.cardmagic.R.layout.activity_main;
 
@@ -19,9 +20,10 @@ public class MainActivity extends Activity {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
-        executeDelayed();
-        setContentView(activity_main);
+
+        setContentView(R.layout.activity_main);
         initView();
+        executeDelayed();
 
     }
 
@@ -30,7 +32,7 @@ public class MainActivity extends Activity {
         initCards(gridLayout);
     }
     private void initCards(ViewGroup layout) {
-        this.setContentView(layout);
+        getLayoutInflater().inflate(R.layout.card1,layout);
     }
 
 
