@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Cartoes Magicos</string>
-
+    <string name="question">Seu número está neste cartão?</string>
 </resources>
