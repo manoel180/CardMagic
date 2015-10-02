@@ -6,8 +6,8 @@ import android.test.ApplicationTestCase;
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */
-public class ApplicationTest extends ApplicationTestCase<Application> {
-    public ApplicationTest() {
+public class FullScreenModeTest extends ApplicationTestCase<Application> {
+    public FullScreenModeTest() {
         super(Application.class);
     }
 }

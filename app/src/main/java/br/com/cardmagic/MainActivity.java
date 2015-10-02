@@ -1,36 +1,38 @@
 package br.com.cardmagic;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.TableLayout;
-import android.widget.Toast;
 
-import static br.com.cardmagic.R.layout.activity_main;
+import roboguice.activity.RoboActivity;
+import roboguice.inject.ContentView;
+import roboguice.inject.InjectView;
 
-public class MainActivity extends Activity {
+@ContentView(R.layout.activity_main)
+public class MainActivity extends RoboActivity {
+
+    @InjectView(R.id.cards)
+    private ViewGroup gridLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_main);
         initView();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FullScreenMode.setFullScreen(true);
+    }
+
     private void initView(){
-        ViewGroup gridLayout = (ViewGroup) findViewById(R.id.cards);
-        initCards(gridLayout);
+        initCards();
 
     }
-    private void initCards(ViewGroup layout) {
-        getLayoutInflater().inflate(R.layout.card1, layout);
+    private void initCards() {
+        getLayoutInflater().inflate(R.layout.card1, gridLayout);
         counterDown().start();
     }
 
