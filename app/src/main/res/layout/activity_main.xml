@@ -1,11 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#0099cc">
+
 
     <FrameLayout
         android:id="@+id/cards"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </FrameLayout>
-</RelativeLayout>
+        android:layout_height="match_parent" />
 
+
+</FrameLayout>

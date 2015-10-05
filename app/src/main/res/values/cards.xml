@@ -17,6 +17,22 @@
         <item>27</item>
         <item>29</item>
         <item>31</item>
+        <item>33</item>
+        <item>35</item>
+        <item>37</item>
+        <item>39</item>
+        <item>41</item>
+        <item>43</item>
+        <item>45</item>
+        <item>47</item>
+        <item>49</item>
+        <item>51</item>
+        <item>53</item>
+        <item>55</item>
+        <item>57</item>
+        <item>59</item>
+        <item>61</item>
+        <item>63</item>
     </integer-array>
     <integer-array name="card2">
         <item>2</item>
@@ -91,3 +107,4 @@
         <item>31</item>
     </integer-array>
 </resources>
+

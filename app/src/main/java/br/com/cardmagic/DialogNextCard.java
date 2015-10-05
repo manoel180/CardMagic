@@ -1,47 +1,49 @@
 package br.com.cardmagic;
 
-import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 
+
+import roboguice.fragment.RoboDialogFragment;
+import roboguice.inject.ContentView;
+import roboguice.inject.InjectView;
+
 /**
  * Created by manoel on 01/10/15.
+ * http://developer.android.com/reference/android/app/DialogFragment.html
  */
-public class DialogNextCard extends Dialog {
 
+
+public class DialogNextCard extends RoboDialogFragment {
+
+    @InjectView(R.id.btnCancel)
     private Button btnCancel;
+
+    @InjectView(R.id.btnYes)
     private Button btnYes;
 
-    public DialogNextCard(Context context) {
-        super(context);
-    }
-
-    public DialogNextCard(Context context, int themeResId) {
-        super(context, themeResId);
-    }
-
-    protected DialogNextCard(Context context, boolean cancelable, OnCancelListener cancelListener) {
-        super(context, cancelable, cancelListener);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.dialog_card, container,
+                false);
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        this.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.dialog_card);
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         init();
     }
 
     private void init() {
-        btnCancel = (Button) this.findViewById(R.id.btnCancel);
-        btnYes = (Button) this.findViewById(R.id.btnYes);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dismiss();
+                dismissAllowingStateLoss();
             }
         });
 
