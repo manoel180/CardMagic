@@ -22,7 +22,7 @@
 
         <TextView
             style="@style/item"
-            android:text= "@integer/_11" />
+            android:text="@integer/_11" />
 
     </TableRow>
 
@@ -46,6 +46,7 @@
             style="@style/item"
             android:text="@integer/_15" />
     </TableRow>
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -66,6 +67,7 @@
             style="@style/item"
             android:text="@integer/_27" />
     </TableRow>
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -86,4 +88,90 @@
             style="@style/item"
             android:text="@integer/_31" />
     </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_40" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_41" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_42" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_43" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_44" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_45" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_46" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_47" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_56" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_57" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_58" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_59" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_60" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_61" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_62" />
+
+        <TextView
+            style="@style/item"
+            android:text="@integer/_63" />
+    </TableRow>
+
+
 </TableLayout>
