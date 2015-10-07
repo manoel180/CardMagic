@@ -2,10 +2,12 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" android:layout_centerInParent="true"
-    android:measureWithLargestChild="false"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:baselineAligned="false"
     android:gravity="center"
-    android:baselineAligned="false">
+    android:measureWithLargestChild="false"
+    android:background="#0099cc">
 
     <TableRow
         android:layout_width="match_parent"
@@ -92,6 +94,7 @@
             style="@style/item"
             android:text="@integer/_31" />
     </TableRow>
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -112,6 +115,7 @@
             style="@style/item"
             android:text="@integer/_39" />
     </TableRow>
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -132,6 +136,7 @@
             style="@style/item"
             android:text="@integer/_47" />
     </TableRow>
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -152,6 +157,7 @@
             style="@style/item"
             android:text="@integer/_55" />
     </TableRow>
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent">
