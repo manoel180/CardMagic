@@ -10,19 +10,19 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_8" />
+            android:text="@integer/_16" />
 
         <TextView
             style="@style/item"
-            android:text="@integer/_9" />
+            android:text="@integer/_17" />
 
         <TextView
             style="@style/item"
-            android:text="@integer/_10" />
+            android:text="@integer/_18" />
 
         <TextView
             style="@style/item"
-            android:text= "@integer/_11" />
+            android:text= "@integer/_19" />
 
     </TableRow>
 
@@ -32,19 +32,19 @@
 
         <TextView
             style="@style/item"
-            android:text="@integer/_12" />
+            android:text="@integer/_20" />
 
         <TextView
             style="@style/item"
-            android:text="@integer/_13" />
+            android:text="@integer/_21" />
 
         <TextView
             style="@style/item"
-            android:text="@integer/_14" />
+            android:text="@integer/_22" />
 
         <TextView
             style="@style/item"
-            android:text="@integer/_15" />
+            android:text="@integer/_23" />
     </TableRow>
     <TableRow
         android:layout_width="match_parent"
