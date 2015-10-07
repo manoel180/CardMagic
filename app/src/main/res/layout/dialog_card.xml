@@ -25,15 +25,15 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
-                android:text="@android:string/yes" />
+                android:text="@string/yes" />
 
             <Button
-                android:id="@+id/btnCancel"
+                android:id="@+id/btnNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:text="@android:string/cancel" />
+                android:text="@string/no" />
         </RelativeLayout>
 
 

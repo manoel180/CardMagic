@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Cartoes Magicos</string>
     <string name="question">Seu número está neste cartão?</string>
-
-    <string name="title_activity_fullscreen">FullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="no" >Não</string>
+    <string name="yes">Sim</string>
+    <string name="msg">O número que você escolheu é.....</string>
+    <string name="btn_recomecar">Recomeçar</string>
 </resources>

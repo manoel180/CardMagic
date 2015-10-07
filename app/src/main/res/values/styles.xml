@@ -15,6 +15,18 @@
         <item name="android:textSize">@dimen/item_size_text</item>
     </style>
 
+    <style name="msg">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/msg_size_text</item>
+    </style>
+
+    <style name="result">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/item_size_text</item>
+    </style>
+
     <style name="Theme.Material.Light.Dialog.NoMinWidth" parent="Theme.AppCompat.Dialog">
         <item name="android:windowMinWidthMinor">0dip</item>
         <item name="android:windowMinWidthMajor">0dip</item>
