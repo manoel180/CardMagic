@@ -8,6 +8,7 @@ import android.os.Handler;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -213,13 +214,13 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
 
         SecureRandom random = new SecureRandom();
         index = random.nextInt(6);
-
+        Log.e("Card-Index-",String.valueOf(index));
         if(cardsSorterds.containsKey(index)){
-            getCard();
+            return getCard();
         }else{
             cardsSorterds.put(index,card);
             card = cards.get(index);
+            return card;
         }
-        return card;
     }
 }
