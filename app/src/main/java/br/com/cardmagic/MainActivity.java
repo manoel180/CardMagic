@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -17,6 +16,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import roboguice.RoboGuice;
 import roboguice.activity.RoboFragmentActivity;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
@@ -45,6 +45,10 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
     @Nullable
     @InjectView(R.id.btnRecomecar)
     private Button btnRecomecar;
+
+    @Nullable
+    @InjectView(R.id.btnStart)
+    private Button btnStart;
 
     @Inject
     private DialogNextCard nextCard;
@@ -81,7 +85,21 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-       initCards();
+        if(gridLayout != null) {
+
+            gridLayout.removeAllViewsInLayout();
+
+            getLayoutInflater().inflate(R.layout.layout_quest, gridLayout);
+            RoboGuice.getInjector(this).injectMembers(this);
+        }
+        if (btnStart != null) {
+            btnStart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    initCards();
+                }
+            });
+        }
         final View decorView = getWindow().getDecorView();
         decorView.setOnSystemUiVisibilityChangeListener(
                 new View.OnSystemUiVisibilityChangeListener() {

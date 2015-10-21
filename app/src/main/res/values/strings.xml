@@ -5,4 +5,5 @@
     <string name="yes">Sim</string>
     <string name="msg">O número que você escolheu é.....</string>
     <string name="btn_recomecar">Recomeçar</string>
+    <string name="quest">Pense em um número de 1 à 63.</string>
 </resources>
