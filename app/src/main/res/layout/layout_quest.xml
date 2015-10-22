@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
+        android:id="@+id/quest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/quest"/>
-<Button
-    android:id="@+id/btnStart"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Já pensei no número"/>
-</LinearLayout>
+        android:text="@string/quest"
+        android:textSize="@dimen/msg_size_text"
+        android:layout_centerInParent="true"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnStart" android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="Já pensei no número" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnExit" android:layout_alignParentBottom="true"
+        android:text="Quero sair" android:layout_alignParentRight="true"/>
+</RelativeLayout>

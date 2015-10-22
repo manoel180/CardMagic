@@ -2,12 +2,14 @@ package br.com.cardmagic;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.annotation.Nullable;
+import android.os.PersistableBundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.splunk.mint.Mint;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -16,7 +18,6 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import roboguice.RoboGuice;
 import roboguice.activity.RoboFragmentActivity;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
@@ -38,17 +39,14 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
     @InjectView(R.id.cards)
     private ViewGroup gridLayout;
 
-    @Nullable
-    @InjectView(R.id.resultFinal)
     private TextView txtResult;
 
-    @Nullable
-    @InjectView(R.id.btnRecomecar)
     private Button btnRecomecar;
 
-    @Nullable
-    @InjectView(R.id.btnStart)
     private Button btnStart;
+
+
+    private Button btnExit;
 
     @Inject
     private DialogNextCard nextCard;
@@ -68,6 +66,12 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
     private int card;
     private int index;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
+        Mint.initAndStartSession(this, "8a57855c");
+    }
+
     private void hideSystemUI() {
         // Set the IMMERSIVE flag.
         // Set the content to appear under the system bars so that the content
@@ -85,21 +89,8 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        if(gridLayout != null) {
 
-            gridLayout.removeAllViewsInLayout();
-
-            getLayoutInflater().inflate(R.layout.layout_quest, gridLayout);
-            RoboGuice.getInjector(this).injectMembers(this);
-        }
-        if (btnStart != null) {
-            btnStart.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    initCards();
-                }
-            });
-        }
+        initGame();
         final View decorView = getWindow().getDecorView();
         decorView.setOnSystemUiVisibilityChangeListener(
                 new View.OnSystemUiVisibilityChangeListener() {
@@ -109,6 +100,30 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
                     }
                 });
     }
+
+    private void initGame() {
+        getLayoutInflater().inflate(R.layout.layout_quest, gridLayout);
+       // btnStart = (Button) findViewById(R.id.btnStart);
+
+            btnStart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    initCards();
+                }
+            });
+
+
+        btnExit  = (Button) findViewById(R.id.btnExit);
+        if(btnExit != null) {
+            btnExit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    exit();
+                }
+            });
+        }
+    }
+
 
     private void initCards() {
         cards = new android.support.v4.util.ArrayMap<Integer, Integer>();
@@ -136,7 +151,7 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
      *
      */
     public CountDownTimer counterDown(){
-        return  new CountDownTimer(2000, 1000) {
+        return  new CountDownTimer(5000, 1000) {
 
             public void onTick(long millisUntilFinished) {}
 
@@ -186,9 +201,20 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
             @Override
             public void onClick(View v) {
                 gridLayout.removeAllViewsInLayout();
-                initCards();
+                initGame();
             }
         });
+
+
+        btnExit  = (Button) findViewById(R.id.btnExit);
+        if(btnExit != null) {
+            btnExit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    exit();
+                }
+            });
+        }
 
         for(Integer i : cardsSelected){
           resultFinal +=  cardsNumbers[i];
@@ -208,6 +234,11 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
             return card;
         }
     }
+
+    private void exit(){
+        finish();
+    }
+
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {

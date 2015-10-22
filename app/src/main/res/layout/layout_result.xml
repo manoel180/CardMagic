@@ -16,9 +16,16 @@
         android:text="63" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_recomecar"
-        android:id="@+id/btnRecomecar" android:layout_alignParentBottom="true"
+        android:id="@+id/btnRecomecar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnExit" android:layout_alignParentBottom="true"
+        android:text="Quero sair" android:layout_alignParentRight="true"/>
 </RelativeLayout>
