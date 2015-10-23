@@ -2,14 +2,16 @@ package br.com.cardmagic;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.PersistableBundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.splunk.mint.Mint;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -35,6 +37,7 @@ import static br.com.cardmagic.R.layout.layout_result;
 @ContentView(activity_main)
 public class MainActivity extends RoboFragmentActivity implements CallbackNextCards{
 
+    InterstitialAd mInterstitialAd;
 
     @InjectView(R.id.cards)
     private ViewGroup gridLayout;
@@ -48,6 +51,9 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
 
     private Button btnExit;
 
+
+   // private AdView mAdView;
+
     @Inject
     private DialogNextCard nextCard;
 
@@ -58,6 +64,8 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
 
     private int resultFinal;
 
+    private AdRequest adRequest;
+
     /**
      * Some older devices needs a small delay between UI widget updates
      * and a change of the status and navigation bar.
@@ -66,11 +74,14 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
     private int card;
     private int index;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-        Mint.initAndStartSession(this, "8a57855c");
+    private void requestNewInterstitial() {
+
+      adRequest = new AdRequest.Builder()
+                .addTestDevice("4E441F0D2F1FEBCDB67463195D4E85A2")
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
     }
+
 
     private void hideSystemUI() {
         // Set the IMMERSIVE flag.
@@ -86,24 +97,64 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
     }
 
-    @Override
+      @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-        initGame();
-        final View decorView = getWindow().getDecorView();
-        decorView.setOnSystemUiVisibilityChangeListener(
-                new View.OnSystemUiVisibilityChangeListener() {
-                    @Override
-                    public void onSystemUiVisibilityChange(int i) {
-                        hideSystemUI();
-                    }
-                });
+     //   mAdView = (AdView) findViewById(R.id.ad_view);
+          mInterstitialAd = new InterstitialAd(this);
+          mInterstitialAd.setAdUnitId("ca-app-pub-4789799531129270/8979008505");
+
+          requestNewInterstitial();
+        // Start loading the ad in the background.
+          //mAdView.loadAd(adRequest);
+
+
+
+//        mInterstitialAd.setAdListener(new AdListener() {
+//            @Override
+//            public void onAdLoaded() {
+//                super.onAdLoaded();
+//            }
+//
+//            @Override
+//            public void onAdClosed() {
+//                initGame();
+//            }
+//        });
+
+          // Set an AdListener.
+          mInterstitialAd.setAdListener(new AdListener() {
+              @Override
+              public void onAdLoaded() {
+                  Toast.makeText(MainActivity.this,
+                          "The interstitial is loaded", Toast.LENGTH_SHORT).show();
+              }
+
+              @Override
+              public void onAdClosed() {
+                  // Proceed to the next level.
+                  initGame();
+              }
+          });
+          mInterstitialAd.loadAd(adRequest);
+
+          initGame();
+//        final View decorView = getWindow().getDecorView();
+//        decorView.setOnSystemUiVisibilityChangeListener(
+//                new View.OnSystemUiVisibilityChangeListener() {
+//                    @Override
+//                    public void onSystemUiVisibilityChange(int i) {
+//                        hideSystemUI();
+//                    }
+//                });
     }
 
     private void initGame() {
+        //mAdView.setVisibility(View.VISIBLE);
+        showInterstitial();
         getLayoutInflater().inflate(R.layout.layout_quest, gridLayout);
-       // btnStart = (Button) findViewById(R.id.btnStart);
+        btnStart = (Button) findViewById(R.id.btnStart);
 
             btnStart.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -126,6 +177,7 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
 
 
     private void initCards() {
+        //mAdView.setVisibility(View.INVISIBLE);
         cards = new android.support.v4.util.ArrayMap<Integer, Integer>();
         cardsSorterds = new android.support.v4.util.ArrayMap<Integer, Integer>();
         cardsSelected = new ArrayList<Integer>();
@@ -179,6 +231,12 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
         updateCard();
     }
 
+    public void showInterstitial() {
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        }
+    }
+
 
     private void updateCard(){
         if(cardsSorterds.size()<6) {
@@ -193,6 +251,7 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
 
     }
 
+
     private void countResult() {
 
         txtResult = (TextView) findViewById(R.id.resultFinal);
@@ -200,6 +259,7 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
         btnRecomecar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showInterstitial();
                 gridLayout.removeAllViewsInLayout();
                 initGame();
             }

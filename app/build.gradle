@@ -38,14 +38,6 @@ android {
     }
 }
 
-apply plugin: 'android'
-
-repositories {
-    maven {
-        url "https://mint.splunk.com/gradle/"
-    }
-}
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     provided 'org.roboguice:roboblender:3.+'
@@ -54,7 +46,6 @@ dependencies {
     compile 'org.roboguice:roboguice:3.+'
     compile 'com.google.android.gms:play-services-analytics:8.1.0'
     compile 'com.google.android.gms:play-services-ads:8.1.0'
-    compile 'ch.acra:acra:4.6.2'
-    compile "com.splunk.mint:mint:4.4.0"
+
 }
 

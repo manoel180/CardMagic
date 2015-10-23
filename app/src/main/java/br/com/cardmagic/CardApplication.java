@@ -3,8 +3,6 @@ package br.com.cardmagic;
 import android.app.Application;
 import android.content.Context;
 
-import com.splunk.mint.Mint;
-
 import roboguice.inject.ContextSingleton;
 
 /**
