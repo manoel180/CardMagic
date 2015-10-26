@@ -32,8 +32,8 @@ android {
             applicationId 'br.com.cardmagic'
             signingConfig signingConfigs.config
             targetSdkVersion 16
-            versionCode 4
-            versionName '1.0.4'
+            versionCode 5
+            versionName '1.0.5'
         }
     }
 }

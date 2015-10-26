@@ -7,10 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
 import java.security.SecureRandom;
@@ -52,7 +51,7 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
     private Button btnExit;
 
 
-   // private AdView mAdView;
+    private AdView mAdView;
 
     @Inject
     private DialogNextCard nextCard;
@@ -77,8 +76,8 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
     private void requestNewInterstitial() {
 
       adRequest = new AdRequest.Builder()
-                .addTestDevice("4E441F0D2F1FEBCDB67463195D4E85A2")
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+               // .addTestDevice("4E441F0D2F1FEBCDB67463195D4E85A2")
+                //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
     }
 
@@ -100,58 +99,27 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
       @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-
-     //   mAdView = (AdView) findViewById(R.id.ad_view);
+          mAdView = (AdView) findViewById(R.id.ad_view);
           mInterstitialAd = new InterstitialAd(this);
           mInterstitialAd.setAdUnitId("ca-app-pub-4789799531129270/8979008505");
 
           requestNewInterstitial();
         // Start loading the ad in the background.
-          //mAdView.loadAd(adRequest);
-
-
-
-//        mInterstitialAd.setAdListener(new AdListener() {
-//            @Override
-//            public void onAdLoaded() {
-//                super.onAdLoaded();
-//            }
-//
-//            @Override
-//            public void onAdClosed() {
-//                initGame();
-//            }
-//        });
-
-          // Set an AdListener.
-          mInterstitialAd.setAdListener(new AdListener() {
-              @Override
-              public void onAdLoaded() {
-                  Toast.makeText(MainActivity.this,
-                          "The interstitial is loaded", Toast.LENGTH_SHORT).show();
-              }
-
-              @Override
-              public void onAdClosed() {
-                  // Proceed to the next level.
-                  initGame();
-              }
-          });
-          mInterstitialAd.loadAd(adRequest);
+          mAdView.loadAd(adRequest);
 
           initGame();
-//        final View decorView = getWindow().getDecorView();
-//        decorView.setOnSystemUiVisibilityChangeListener(
-//                new View.OnSystemUiVisibilityChangeListener() {
-//                    @Override
-//                    public void onSystemUiVisibilityChange(int i) {
-//                        hideSystemUI();
-//                    }
-//                });
+        final View decorView = getWindow().getDecorView();
+        decorView.setOnSystemUiVisibilityChangeListener(
+                new View.OnSystemUiVisibilityChangeListener() {
+                    @Override
+                    public void onSystemUiVisibilityChange(int i) {
+                        hideSystemUI();
+                    }
+                });
     }
 
     private void initGame() {
-        //mAdView.setVisibility(View.VISIBLE);
+        mAdView.setVisibility(View.VISIBLE);
         showInterstitial();
         getLayoutInflater().inflate(R.layout.layout_quest, gridLayout);
         btnStart = (Button) findViewById(R.id.btnStart);
@@ -177,7 +145,7 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
 
 
     private void initCards() {
-        //mAdView.setVisibility(View.INVISIBLE);
+        mAdView.setVisibility(View.INVISIBLE);
         cards = new android.support.v4.util.ArrayMap<Integer, Integer>();
         cardsSorterds = new android.support.v4.util.ArrayMap<Integer, Integer>();
         cardsSelected = new ArrayList<Integer>();
@@ -208,12 +176,13 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
             public void onTick(long millisUntilFinished) {}
 
             public void onFinish() {
-                nextCard.setOnClickYes(MainActivity.this);
+                if(this != null) {
+                    nextCard.setOnClickYes(MainActivity.this);
 
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.add(nextCard, null);
-                ft.commitAllowingStateLoss();
-
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    ft.add(nextCard, null);
+                    ft.commitAllowingStateLoss();
+                }
 
             }
         };
