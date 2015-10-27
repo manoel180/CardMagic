@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ import static br.com.cardmagic.R.layout.layout_result;
 @ContentView(activity_main)
 public class MainActivity extends RoboFragmentActivity implements CallbackNextCards{
 
-    InterstitialAd mInterstitialAd;
+//    InterstitialAd mInterstitialAd;
 
     @InjectView(R.id.cards)
     private ViewGroup gridLayout;
@@ -100,8 +99,8 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
           mAdView = (AdView) findViewById(R.id.ad_view);
-          mInterstitialAd = new InterstitialAd(this);
-          mInterstitialAd.setAdUnitId("ca-app-pub-4789799531129270/8979008505");
+//          mInterstitialAd = new InterstitialAd(this);
+//          mInterstitialAd.setAdUnitId("ca-app-pub-4789799531129270/8979008505");
 
           requestNewInterstitial();
         // Start loading the ad in the background.
@@ -120,7 +119,7 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
 
     private void initGame() {
         mAdView.setVisibility(View.VISIBLE);
-        showInterstitial();
+       // showInterstitial();
         getLayoutInflater().inflate(R.layout.layout_quest, gridLayout);
         btnStart = (Button) findViewById(R.id.btnStart);
 
@@ -200,11 +199,11 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
         updateCard();
     }
 
-    public void showInterstitial() {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        }
-    }
+//    public void showInterstitial() {
+//        if (mInterstitialAd.isLoaded()) {
+//            mInterstitialAd.show();
+//        }
+//    }
 
 
     private void updateCard(){
@@ -228,7 +227,7 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
         btnRecomecar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showInterstitial();
+               // showInterstitial();
                 gridLayout.removeAllViewsInLayout();
                 initGame();
             }
@@ -264,8 +263,8 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
         }
     }
 
-    private void exit(){
-        finish();
+    private void exit(){ finishAffinity();
+
     }
 
     @Override
