@@ -268,6 +268,11 @@ public class MainActivity extends RoboFragmentActivity implements CallbackNextCa
         finish();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        counterDown().cancel();
+    }
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
